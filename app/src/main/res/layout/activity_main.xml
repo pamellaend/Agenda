@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".MainActivity"
+                android:orientation="vertical"
+                android:background ="@drawable/imagemagenda">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Minha Agenda"
+                    android:textColor="#c79087"
+                    android:textSize="30dp"
+                    android:fontFamily="@fonte/pacifico"
+                    android:layout_gravity="center_horizontal"/>
+            <EditText
+                    android:id ="@+id/nome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="66dp"
+                    android:autofillHints="Nome"
+                    android:hint="Nome"
+                    android:textColorHint="#c79087"
+                    android:layout_marginTop="35dp"
+                    android:ems="13"
+                    android:inputType="textPersonName"
+                    android:textColor="#c79087"
+                    android:background="#ebdbdb"
+                    android:backgroundTint="#ebdbdb"/>
+
+            <EditText
+                    android:id ="@+id/telefone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="66dp"
+                    android:autofillHints="Telefone"
+                    android:hint="Telefone"
+                    android:textColorHint="#c79087"
+                    android:layout_marginTop="15dp"
+                    android:ems="13"
+                    android:inputType="number"
+                    android:textColor="#c79087"
+                    android:background="#ebdbdb"
+                    android:backgroundTint="#ebdbdb"/>
+<RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonPessoal"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:text="Pessoal"
+            android:textSize="20dp"
+            android:layout_marginStart="66dp"
+            android:textColor="#c79087"
+            android:checked="true"
+            android:onClick="onRadioButtonClicked"
+            android:textColorLink="#c79087" android:textColorHighlight="#c79087">
+    </RadioButton>
+    <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id = "@+id/buttonTrabalho"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:text="Trabalho"
+            android:layout_marginStart="66dp"
+            android:textColor="#c79087"
+            android:onClick="onRadioButtonClicked"
+    >
+    </RadioButton>
+</RadioGroup>
+            <EditText
+                    android:id ="@+id/referencia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="66dp"
+                    android:autofillHints="Referencia"
+                    android:hint="Referência"
+                    android:textColorHint="#c79087"
+                    android:layout_marginTop="15dp"
+                    android:ems="13"
+                    android:inputType="text"
+                    android:textColor="#c79087"
+                    android:background="#ebdbdb"
+                    android:visibility="invisible"
+                    android:backgroundTint="#ebdbdb"/>
+
+            <EditText
+                    android:id ="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="66dp"
+                    android:autofillHints="Email"
+                    android:hint="E-mail"
+                    android:textColorHint="#c79087"
+                    android:layout_marginTop="15dp"
+                    android:ems="13"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#c79087"
+                    android:background="#ebdbdb"
+                    android:visibility="invisible"
+                    android:backgroundTint="#ebdbdb"/>
+
+            <Button
+                    android:id="@+id/saveB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Salvar"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="150dp"
+                    android:textColor="#ebdbdb"
+                    android:backgroundTint="#c79087"
+                    android:textSize="15dp">
+            </Button>
+            <View
+                    android:layout_width="335dp"
+                    android:layout_height="3dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#c79087"/>
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                <EditText
+                        android:id="@+id/pesquisar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="66dp"
+                        android:hint="Pesquisar:"
+                        android:textColorHint="#c79087"
+                        android:layout_marginTop="15dp"
+                        android:ems="10"
+                        android:inputType="text"
+                        android:textColor="#c79087"
+                        android:background="#ebdbdb"
+                        android:backgroundTint="#ebdbdb"/>
+
+                <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="19dp"
+                        android:layout_marginTop="13dp"
+                        app:srcCompat="@android:drawable/ic_menu_search"
+                        android:id="@+id/imageButton"
+                        android:layout_weight="1"
+                        android:background="#c79087"/>
+
+            </LinearLayout>
+            <TextView
+                    android:id="@+id/contatostxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" "
+                    android:layout_marginStart="66dp"
+                    android:textColor="#c79087"
+                    android:textSize="18sp"
+                    android:layout_gravity="center|left">
+            </TextView>
+            <Button
+                    android:id="@+id/mostrarcontatosB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mostrar todos contatos"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="85dp"
+                    android:textColor="#ebdbdb"
+                    android:backgroundTint="#c79087"
+                    android:textSize="15sp">
+            </Button>
+
+        </LinearLayout>
+</ScrollView>
