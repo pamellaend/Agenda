@@ -2,12 +2,15 @@ package com.pamella.agenda
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType.TYPE_CLASS_TEXT
+import android.text.InputType.TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS
 import android.view.View
 import android.view.WindowManager
 import android.widget.*
-import android.widget.Toast.LENGTH_LONG
+import android.widget.Toast.*
 
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     private lateinit var nameTxt: EditText
@@ -17,12 +20,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var searchButton: ImageButton
     private lateinit var showAllContactsButton: Button
     private lateinit var refTxt: EditText
-    private lateinit var emailTxt: EditText
     private lateinit var showContactsTxt: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        this.supportActionBar?.hide()
 
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -30,38 +33,43 @@ class MainActivity : AppCompatActivity() {
         )
 
         bindView()
-        showAdd()
-
-
+        val contacts = Agenda()
 
         saveButton.setOnClickListener {
-            var name = nameTxt?.text.toString()
-            var phone = celTxt?.text.toString()
+            val name = nameTxt.text.toString()
+            val phone = celTxt.text.toString()
+            val ref = refTxt.text.toString()
+            if (name.isEmpty())  nameTxt.error="Insira o nome!"
+            if (phone.isEmpty())  celTxt.error="Insira o telefone!"
 
-            if(radioButtonSelected?.id == 0 ){
-                var ref = refTxt?.text.toString()
-                Agenda(name,phone,ref).addContato()
+            showContactsTxt.text = contacts.addContact(name, phone, ref)
+            nameTxt.text.clear()
+            celTxt.text.clear()
+            refTxt.text.clear()
+            makeText(this, "Contato cadastrado!", LENGTH_SHORT).show()
         }
-            else{
-                var email = emailTxt?.text.toString()
-                Agenda(name,phone,email).addContato()
-                Agenda.showList()
-            }
 
-        }
+
 
             searchButton.setOnClickListener {
-                var nome = searchTxt?.text.toString()
+                val search = searchTxt.text.toString()
+                if(search.isNotEmpty()){
+                    showContactsTxt.text = contacts.consultList(search)
+                    searchTxt.text.clear()
+                }
+                if(search.isEmpty()) searchTxt.error = "Informe um nome para consultar."
+                else {
+                    makeText(this, "Contato não cadastrado!", LENGTH_SHORT).show()
+                }
 
             }
 
-        showAllContactsButton.setOnClickListener {
-                for (i in )
 
+            showAllContactsButton.setOnClickListener()
+            {
+                showContactsTxt.text = contacts.listFinal()
+            }
         }
-
-
-    }
 
      private fun bindView() {
         nameTxt = findViewById(R.id.nome)
@@ -71,24 +79,9 @@ class MainActivity : AppCompatActivity() {
         searchButton = findViewById(R.id.imageButton)
         showAllContactsButton = findViewById(R.id.mostrarcontatosB)
         refTxt = findViewById(R.id.referencia)
-        emailTxt = findViewById(R.id.email)
         showContactsTxt = findViewById(R.id.contatostxt)
     }
 
-
- private fun showAdd(){
-    if(radioButtonSelected?.id == 0 ){
-        refTxt.visibility = View.VISIBLE
-        emailTxt.visibility = View.GONE
-    }
-    else {
-        refTxt.visibility = View.GONE
-        emailTxt.visibility = View.VISIBLE
-}
-}
-
-
-      var radioButtonSelected :relation? = null
      fun onRadioButtonClicked(view: View){
         if (view is RadioButton) {
 
@@ -97,11 +90,13 @@ class MainActivity : AppCompatActivity() {
             when (view.id) {
                 R.id.buttonPessoal ->
                     if (checked) {
-                        radioButtonSelected = relation.PESSOAL
+                        refTxt.inputType = TYPE_CLASS_TEXT
+                        refTxt.hint = "Referência"
                     }
                 R.id.buttonTrabalho -> {
                     if (checked) {
-                        radioButtonSelected = relation.TRABALHO
+                        refTxt.inputType = TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS
+                        refTxt.hint = "E-mail"
                     }
                 }
 

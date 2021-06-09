@@ -17,7 +17,7 @@
                     android:layout_height="wrap_content"
                     android:text="Minha Agenda"
                     android:textColor="#c79087"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     android:fontFamily="@fonte/pacifico"
                     android:layout_gravity="center_horizontal"/>
             <EditText
@@ -27,6 +27,7 @@
                     android:layout_marginStart="66dp"
                     android:autofillHints="Nome"
                     android:hint="Nome"
+                    android:textCursorDrawable="@drawable/color_cursor"
                     android:textColorHint="#c79087"
                     android:layout_marginTop="35dp"
                     android:ems="13"
@@ -40,6 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="66dp"
+                    android:textCursorDrawable="@drawable/color_cursor"
                     android:autofillHints="Telefone"
                     android:hint="Telefone"
                     android:textColorHint="#c79087"
@@ -59,19 +61,21 @@
             android:gravity="center"
             android:layout_marginTop="15dp"
             android:text="Pessoal"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:layout_marginStart="66dp"
             android:textColor="#c79087"
             android:checked="true"
+            android:buttonTint = "#c79087"
             android:onClick="onRadioButtonClicked"
-            android:textColorLink="#c79087" android:textColorHighlight="#c79087">
+            >
     </RadioButton>
     <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/buttonTrabalho"
             android:gravity="center"
-            android:textSize="20dp"
+            android:textSize="20sp"
+            android:buttonTint = "#c79087"
             android:text="Trabalho"
             android:layout_marginStart="66dp"
             android:textColor="#c79087"
@@ -84,32 +88,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="66dp"
-                    android:autofillHints="Referencia"
-                    android:hint="Referência"
                     android:textColorHint="#c79087"
                     android:layout_marginTop="15dp"
                     android:ems="13"
+                    android:textCursorDrawable="@drawable/color_cursor"
                     android:inputType="text"
                     android:textColor="#c79087"
                     android:background="#ebdbdb"
-                    android:visibility="invisible"
                     android:backgroundTint="#ebdbdb"/>
 
-            <EditText
-                    android:id ="@+id/email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="66dp"
-                    android:autofillHints="Email"
-                    android:hint="E-mail"
-                    android:textColorHint="#c79087"
-                    android:layout_marginTop="15dp"
-                    android:ems="13"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#c79087"
-                    android:background="#ebdbdb"
-                    android:visibility="invisible"
-                    android:backgroundTint="#ebdbdb"/>
+
 
             <Button
                     android:id="@+id/saveB"
@@ -121,10 +109,10 @@
                     android:layout_marginLeft="150dp"
                     android:textColor="#ebdbdb"
                     android:backgroundTint="#c79087"
-                    android:textSize="15dp">
+                    android:textSize="15sp">
             </Button>
             <View
-                    android:layout_width="335dp"
+                    android:layout_width="320dp"
                     android:layout_height="3dp"
                     android:layout_gravity="center_horizontal"
                     android:background="#c79087"/>
@@ -142,6 +130,7 @@
                         android:textColorHint="#c79087"
                         android:layout_marginTop="15dp"
                         android:ems="10"
+                        android:textCursorDrawable="@drawable/color_cursor"
                         android:inputType="text"
                         android:textColor="#c79087"
                         android:background="#ebdbdb"
@@ -155,14 +144,14 @@
                         app:srcCompat="@android:drawable/ic_menu_search"
                         android:id="@+id/imageButton"
                         android:layout_weight="1"
-                        android:background="#c79087"/>
+                        android:background="#c79087"
+                        tools:ignore="VectorDrawableCompat"/>
 
             </LinearLayout>
             <TextView
                     android:id="@+id/contatostxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" "
                     android:layout_marginStart="66dp"
                     android:textColor="#c79087"
                     android:textSize="18sp"
@@ -174,7 +163,7 @@
                     android:layout_height="wrap_content"
                     android:text="Mostrar todos contatos"
                     android:layout_marginTop="10dp"
-                    android:layout_marginStart="85dp"
+                    android:layout_marginStart="75dp"
                     android:textColor="#ebdbdb"
                     android:backgroundTint="#c79087"
                     android:textSize="15sp">
