@@ -39,14 +39,15 @@ class MainActivity : AppCompatActivity() {
             val name = nameTxt.text.toString()
             val phone = celTxt.text.toString()
             val ref = refTxt.text.toString()
-            if (name.isEmpty())  nameTxt.error="Insira o nome!"
-            if (phone.isEmpty())  celTxt.error="Insira o telefone!"
+            if (name.isEmpty())  nameTxt.error=getString(R.string.error_nome)
+            if (phone.isEmpty())  celTxt.error=getString(R.string.error_telefone)
+
 
             showContactsTxt.text = contacts.addContact(name, phone, ref)
             nameTxt.text.clear()
             celTxt.text.clear()
             refTxt.text.clear()
-            makeText(this, "Contato cadastrado!", LENGTH_SHORT).show()
+            makeText(this, getString(R.string.toast_cadastrado), LENGTH_SHORT).show()
         }
 
 
@@ -57,9 +58,9 @@ class MainActivity : AppCompatActivity() {
                     showContactsTxt.text = contacts.consultList(search)
                     searchTxt.text.clear()
                 }
-                if(search.isEmpty()) searchTxt.error = "Informe um nome para consultar."
+                if(search.isEmpty()) searchTxt.error = getString(R.string.toast_pesquisa)
                 else {
-                    makeText(this, "Contato não cadastrado!", LENGTH_SHORT).show()
+                    makeText(this, getString(R.string.toast_naocadastrado), LENGTH_SHORT).show()
                 }
 
             }
@@ -91,12 +92,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.buttonPessoal ->
                     if (checked) {
                         refTxt.inputType = TYPE_CLASS_TEXT
-                        refTxt.hint = "Referência"
+                        refTxt.hint = getString(R.string.hint_referencia)
                     }
                 R.id.buttonTrabalho -> {
                     if (checked) {
                         refTxt.inputType = TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS
-                        refTxt.hint = "E-mail"
+                        refTxt.hint = getString(R.string.hint_email)
                     }
                 }
 

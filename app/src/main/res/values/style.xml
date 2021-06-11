@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="padraoCaixaTxt">
+            <item name="android:textColor">@color/strongPink</item><!-- Ñ funciona -->
+            <item name="android:background">@color/lightPink</item>
+            <item name="android:backgroundTint">@color/lightPink</item>
+            <item name="android:textCursorDrawable">@color/strongPink</item>
+            <item name="android:colorAccent">@color/strongPink</item>
+            <item name="android:textColorHint">@color/strongPink</item>
+            <item name="android:ems">13</item>
+           </style>
+
+        <style name="padraobutton">
+            <item name="android:backgroundTint">@color/strongPink</item>
+            <item name="android:textColor">@color/lightPink</item>
+        </style>
+
+    <style name="radioButton">
+        <item name="android:backgroundTint">@color/lightPink</item>
+        <item name="android:buttonTint">@color/strongPink</item>
+        <item name="android:textColor">@color/strongPink</item>
+    </style>
+</resources>

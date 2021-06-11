@@ -1,3 +1,24 @@
 <resources>
-    <string name="app_name">Agenda</string>
+    <!--    XML    -->
+    <string name="app_name">Minha agenda</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_telefone">Telefone</string>
+    <string name="radioB_pessoal">Pessoal</string>
+    <string name="radioB_trabalho">Trabalho</string>
+    <string name="buttom_save">Salvar</string>
+    <string name="buttom_mostrartodos">Mostrar todos contatos</string>
+    <string name="hint_pesquisar">Pesquisar:</string>
+
+    <!--Main Activity -->
+    <string name="error_nome">Insira o nome!</string>
+    <string name="error_telefone">Insira o telefone!</string>
+    <string name="toast_cadastrado">Contato cadastrado!</string>
+    <string name="toast_pesquisa">Informe um nome para consultar</string>
+    <string name="toast_naocadastrado">Contato não cadastrado!</string>
+    <string name="hint_referencia">Referência</string>
+    <string name="hint_email">E-mail</string>
+    <string name="add_contato">%1$s / %2$s \n / %3$s </string>
+    <string name="mostrar_da_lista">%1$s \n________\n</string>
+
+
 </resources>
